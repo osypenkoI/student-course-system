@@ -6,4 +6,6 @@ module.exports = {
       { apiKey: process.env.TESTOMATIO },
     ],
   ],
+  testMatch: ['<rootDir>/tests/unit/**/*.test.js'], // Виконувати тільки тести з папки unit
 };
+
