@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
     // Look for test files in the "tests" directory, relative to this configuration file.
-    testDir: 'tests/screenshot',
+    testDir: 'tests',
 
     // Reporter to use
     reporter: 'html',
@@ -16,8 +16,8 @@ export default defineConfig({
 
         // Run browser in headless mode.
         headless: true,
-
     },
+
     // Configure projects for major browsers.
     projects: [
         {
@@ -27,13 +27,13 @@ export default defineConfig({
         {
             name: 'firefox',
             use: { ...devices['Desktop Firefox'] },
-        }
-
+        },
     ],
+
     // Run your local dev server before starting the tests.
     webServer: {
         command: 'npx http-server ./src -p 3000',
         port: 3000,
+        reuseExistingServer: !process.env.CI,
     },
-
 });
