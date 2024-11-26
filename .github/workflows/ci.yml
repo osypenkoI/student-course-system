@@ -34,7 +34,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: List snapshots
-      run: ls -la tests/screenshot/**/*.js-snapshots
+      run: ls -la tests/screenshot/students.screenshot.test.js-snapshots
 
     - name: Run Playwright tests
       run: npx playwright test
