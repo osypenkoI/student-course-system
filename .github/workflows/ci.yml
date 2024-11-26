@@ -1,4 +1,4 @@
-name: Lab CI
+name: Playwright Tests CI
 
 on:
   push:
@@ -24,5 +24,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test
+    - name: Fix Playwright permissions
+      run: chmod +x ./node_modules/.bin/playwright
+    
+    - name: Fix http-server permissions
+      run: chmod +x ./node_modules/.bin/http-server
+
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Playwright tests
+      run: npx playwright test
