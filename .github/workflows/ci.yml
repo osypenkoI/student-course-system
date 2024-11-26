@@ -24,8 +24,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install Playwright browsers
-      run: npx playwright install --with-deps
+    - name: Fix Playwright permissions
+      run: chmod +x ./node_modules/.bin/playwright
+
+    - name: Install Playwright dependencies
+      run: node ./node_modules/playwright/lib/cli/index.js install --with-deps
 
     - name: Run tests
       run: npm test
