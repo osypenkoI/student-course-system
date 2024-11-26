@@ -1,5 +1,4 @@
-// models.js
-class Student {
+export class Student {
     constructor(id, name) {
         this.id = id;
         this.name = name;
@@ -22,7 +21,7 @@ class Student {
     }
 }
 
-class Course {
+export class Course {
     constructor(name) {
         this.name = name;
         this.students = [];
@@ -33,5 +32,3 @@ class Course {
         student.register(this);
     }
 }
-
-module.exports = { Student, Course };

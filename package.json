@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "model.js",
   "scripts": {
-    "test": "jest"
+    "test": "playwright test",
+    "start": "http-server ./src -p 3000"
   },
   "private": true,
   "keywords": [],
@@ -11,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@testomatio/reporter": "^1.6.3",
     "jest": "^29.7.0"
   }
