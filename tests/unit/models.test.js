@@ -1,30 +1,37 @@
-// models.test.js
 const { Student, Course } = require('../../src/models.js');
 
 describe('Student class tests', () => {
     let student;
-    let course;
 
     beforeEach(() => {
         student = new Student(1, 'John Doe');
-        course = new Course('Mathematics');
     });
 
-    test('should register a student on a course', () => {
-        course.enroll(student);
+    test('registers a course', () => {
+        const course = new Course('Math');
+        student.register(course);
+
         expect(student.courses).toContain(course);
     });
 
-    test('should add grade to student', () => {
-        course.enroll(student);
-        student.addGrade(course, 85);
-        expect(student.grades).toEqual([{ course, grade: 85 }]);
+    test('adds a grade', () => {
+        const course = new Course('Science');
+        student.addGrade(course, 90);
+
+        expect(student.grades).toEqual([{ course, grade: 90 }]);
     });
 
-    test('should calculate average grade of student', () => {
-        course.enroll(student);
-        student.addGrade(course, 85);
-        student.addGrade(course, 90);
-        expect(student.getAverageGrade()).toBe(87.5);
+    test('calculates average grade', () => {
+        const course1 = new Course('History');
+        const course2 = new Course('Geography');
+        student.addGrade(course1, 80);
+        student.addGrade(course2, 90);
+
+        expect(student.getAverageGrade()).toBe(85);
+    });
+
+    test('calculates average grade with no grades', () => {
+        expect(student.getAverageGrade()).toBe(0);
     });
 });
+

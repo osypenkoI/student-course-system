@@ -1,4 +1,4 @@
-import { Course, Student } from './models.js';// Імпортуємо класи з models.js
+import { Course, Student } =  require('./models.js');// Імпортуємо класи з models.js
 
 console.log('students.js завантажено');
 
