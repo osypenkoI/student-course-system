@@ -1,3 +1,5 @@
+// This is a simple class for Student and Course management
+
 class Student {
   constructor(id, name) {
     this.id = id;
