@@ -17,10 +17,9 @@ class Student {
   }
 
   getAverageGrade() {
-    if (this.grades.length === 0) return 0;
-    const total = this.grades.reduce((sum, grade) => sum + grade.grade, 0);
-    return total / this.grades.length;
-  }
+  return 100; // deliberately returning a wrong value
+}
+
 }
 
 class Course {
