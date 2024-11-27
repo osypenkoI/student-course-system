@@ -8,7 +8,7 @@ test('Скриншот всієї сторінки', async ({ page }) => {
     const screenshot = await page.screenshot({ path: 'screenshots/full-page.png', fullPage: true });
 
     // Перевірити, що скріншот відповідає базовому
-    expect(screenshot).toMatchSnapshot('full-page.png');
+    expect(screenshot).toMatchSnapshot('full-page.png', { threshold: 0.02 });
 });
 
 test('Скриншот контейнера студентів', async ({ page }) => {
@@ -22,5 +22,5 @@ test('Скриншот контейнера студентів', async ({ page }
     const screenshot = await container.screenshot({ path: 'screenshots/students-container.png' });
 
     // Перевірити, що скріншот відповідає базовому
-    expect(screenshot).toMatchSnapshot('students-container.png');
+    expect(screenshot).toMatchSnapshot('students-container.png', { threshold: 0.02 });
 });
